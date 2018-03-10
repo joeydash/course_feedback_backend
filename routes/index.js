@@ -27,9 +27,11 @@ router.get('/:id', function(req, res, next) {
         });
     }
 });
-router.post('/:id/:_id', function(req, res, next) {
-    console.log(req.params._id+req.params.id);
-    res.json('index');
+router.post('/', function(req, res, next) {
+    connection.query('INSERT INTO jan_may_18 (course_ID, course_period, feedback, time) VALUES ('+req.body.course_ID+', jan_may_18, '+req.body.feedback+','+req.body.time+')', function (error, results, fields) {
+        if (error) throw error;
+        res.json(results);
+    });
 });
 
 module.exports = router;

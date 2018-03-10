@@ -3,9 +3,39 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+  <div class="container-fluid">
+    <div class="row"><h1><%= title %></h1>
+      <p style="margin-left: 10px;">Welcome to <%= title %></p>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+
+      <span class="label label-default">GET</span> <code>http://students.iitm.ac.in:3000/aE</code>
+      <div class="well" style="margin-top: 10px;">[{"_ID":1,"branch":"AE","slot":"A","additional_slot":"","course_number":"AS1300","course_name":"Thermodynamics for Aerospace Engineering","instructor_name":"RAMAKRISHNA P A","old_credit":0,"new_credit":11,"room":"","prerequisite":"","coordinater":"Y","c_c_chairperson":"Senthil Murugan M","strength":58,"allocation_type":"CG"},]</div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+
+      <span class="label label-default">GET</span> <code>students.iitm.ac.in:3000/cS1100</code>
+      <div class="well" style="margin-top: 10px;">"[{"_ID":16,"branch":"CS","slot":"F","additional_slot":"","course_number":"CS1100","course_name":"Introduction to Programming","instructor_name":"JAYALAL SARMA M N","old_credit":3,"new_credit":12,"room":"RJN102","prerequisite":"","coordinater":"Y","c_c_chairperson":"Chandra Sekhar C","strength":161,"allocation_type":"CG"},]</div>
+    </div>
+  </div>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+
+      function downloadJSAtOnload() {
+          var element = document.createElement("script");
+          element.src = "./javascripts/main.js";
+          document.body.appendChild(element);
+      }
+      if (window.addEventListener)
+          window.addEventListener("load", downloadJSAtOnload, false);
+      else if (window.attachEvent)
+          window.attachEvent("onload", downloadJSAtOnload);
+      else window.onload = downloadJSAtOnload;
+  </script>
 </html>

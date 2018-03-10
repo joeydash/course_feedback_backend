@@ -27,5 +27,9 @@ router.get('/:id', function(req, res, next) {
         });
     }
 });
+router.post('/:id/:_id', function(req, res, next) {
+    console.log(req.params._id+req.params.id);
+    res.json('index');
+});
 
 module.exports = router;

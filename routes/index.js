@@ -28,7 +28,7 @@ router.get('/:id', function(req, res, next) {
     }
 });
 router.post('/', function(req, res, next) {
-    connection.query('INSERT INTO course_feedback (course_ID, course_period, feedback, time) VALUES ('+req.body.course_ID+', jan_may_18, '+req.body.feedback+','+req.body.time+')', function (error, results, fields) {
+    connection.query('INSERT INTO course_feedback (course_ID, course_period, feedback, time) VALUES ('+req.body.course_ID+',jan_may_18, '+req.body.feedback+','+req.body.time+')', function (error, results, fields) {
         if (error) throw error;
         res.json(results);
     });

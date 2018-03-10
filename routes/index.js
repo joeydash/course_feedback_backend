@@ -20,10 +20,10 @@ router.get('/:id', function(req, res, next) {
             if (error) throw error;
             res.json(results);
         });
-    }else{
-        res.json({
-            ERROR_CODE: 1011,
-            ERROR : 'Not a department id '
+    }else {
+        connection.query('SELECT * FROM jan_may_18 WHERE course_number = "'+req.params.id+'"', function (error, results, fields) {
+            if (error) throw error;
+            res.json(results);
         });
     }
 });

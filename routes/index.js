@@ -17,7 +17,7 @@ router.get('/:id', function(req, res, next) {
 
     if (req.params.id.length===2){
         connection.connect();
-        connection.query('SELECT * FROM jan_may_18', function (error, results, fields) {
+        connection.query('SELECT * FROM jan_may_18 WHERE branch is '+req.params.id, function (error, results, fields) {
             if (error) throw error;
             connection.end();
             res.json(results);

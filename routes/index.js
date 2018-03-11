@@ -17,23 +17,23 @@ router.get('/:id', function(req, res, next) {
 
     if (req.params.id.length===2){
         connection.query('SELECT * FROM jan_may_18 WHERE branch = "'+req.params.id+'"', function (error, results, fields) {
-            if (error) throw error;
+            if (error) res.json(error);
             res.json(results);
         });
     }else {
         connection.query('SELECT * FROM jan_may_18 WHERE course_number = "'+req.params.id+'"', function (error, results, fields) {
-            if (error) throw error;
+            if (error) res.json(error);
             res.json(results);
         });
     }
 });
 router.post('/', function(req, res, next) {
-    // connection.query('INSERT INTO course_feedback ('+req.body.course_ID+',jan_may_18, '+req.body.feedback+','+req.body.time+')'+'VALUES (course_ID, course_period, feedback, time)', function (error, results, fields) {
-    //     if (error) throw error;
-    //     res.json(results);
-    // });
-    console.log(req.body.course_ID+req.body.time+req.body.feedback);
-    res.json("ok");
+    connection.query("INSERT INTO Customers (course_ID, course_period, feedback, time)" +
+        "VALUES ('"+req.body.course_ID+"','Tom B. Erichsen','"+req.body.feedback+"','"+req.body.time+"');",
+        function (error, results, fields) {
+        if (error) res.json(error);
+        res.json(results);
+    });
 });
 
 module.exports = router;

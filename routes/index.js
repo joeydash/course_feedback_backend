@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Teacher Feedback Api' });
 });
-router.get('/:id', function(req, res, next) {
+router.get('/read/:id', function(req, res, next) {
 
     if (req.params.id.length===2){
         connection.query('SELECT * FROM jan_may_18 WHERE branch = "'+req.params.id+'"', function (error, results, fields) {
@@ -27,9 +27,9 @@ router.get('/:id', function(req, res, next) {
         });
     }
 });
-router.post('/', function(req, res, next) {
+router.post('/create/', function(req, res, next) {
     connection.query("INSERT INTO course_feedback (course_ID, course_period, feedback, time)" +
-        "VALUES ('"+req.body.course_ID+"','Tom B. Erichsen','"+req.body.feedback+"','"+req.body.time+"');",
+        "VALUES ('"+req.body.course_ID+"','jan_may_18','"+req.body.feedback+"','"+req.body.time+"');",
         function (error, results, fields) {
         if (error) res.json(error);
         res.json(results);

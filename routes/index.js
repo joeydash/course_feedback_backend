@@ -28,7 +28,7 @@ router.get('/:id', function(req, res, next) {
     }
 });
 router.post('/', function(req, res, next) {
-    connection.query("INSERT INTO Customers (course_ID, course_period, feedback, time)" +
+    connection.query("INSERT INTO course_feedback (course_ID, course_period, feedback, time)" +
         "VALUES ('"+req.body.course_ID+"','Tom B. Erichsen','"+req.body.feedback+"','"+req.body.time+"');",
         function (error, results, fields) {
         if (error) res.json(error);

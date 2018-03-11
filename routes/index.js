@@ -28,10 +28,12 @@ router.get('/:id', function(req, res, next) {
     }
 });
 router.post('/', function(req, res, next) {
-    connection.query('INSERT INTO course_feedback ('+req.body.course_ID+',jan_may_18, '+req.body.feedback+','+req.body.time+')'+'VALUES (course_ID, course_period, feedback, time)', function (error, results, fields) {
-        if (error) throw error;
-        res.json(results);
-    });
+    // connection.query('INSERT INTO course_feedback ('+req.body.course_ID+',jan_may_18, '+req.body.feedback+','+req.body.time+')'+'VALUES (course_ID, course_period, feedback, time)', function (error, results, fields) {
+    //     if (error) throw error;
+    //     res.json(results);
+    // });
+    console.log(req.body.course_ID+req.body.time+req.body.feedback);
+    res.json("ok");
 });
 
 module.exports = router;

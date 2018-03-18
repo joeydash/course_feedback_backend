@@ -2,7 +2,7 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel="shortcut icon" href="./TFA/res/mipmap-hdpi/TFA.png" />
+    <link rel="shortcut icon" href="./course_feedback_api/TFA/res/mipmap-hdpi/TFA.png" />
 </head>
 <body>
 
@@ -33,7 +33,7 @@
 </body>
 <script type="text/javascript">
 
-    download_css('/stylesheets/style.css');
+    download_css('./course_feedback_api/stylesheets/style.css');
     download_css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
     function download_css(src) {
         var giftofspeed = document.createElement('link');
@@ -48,7 +48,7 @@
 
     download_js("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js");
     download_js("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js");
-    download_js("./javascripts/main.js");
+    download_js("./course_feedback_api/javascripts/main.js");
     function downloadJSAtOnload(src) {
         var element = document.createElement("script");
         element.src = src;

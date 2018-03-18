@@ -20,7 +20,7 @@ router.get('/read/:id', function(req, res, next) {
             res.json(results);
         });
     }else {
-        connection.query('SELECT * FROM jan_may_18 WHERE course_number LIKE "% '+req.params.id+'% "', function (error, results, fields) {
+        connection.query('SELECT * FROM jan_may_18 WHERE course_number LIKE "%'+req.params.id+'%"', function (error, results, fields) {
             if (error) res.json(error);
             res.json(results);
         });

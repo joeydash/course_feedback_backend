@@ -27,13 +27,7 @@ router.get('/read/:id', function(req, res, next) {
     }
 });
 router.get('/read/feedback/:course_ID', function(req, res, next) {
-    connection.query('SELECT * FROM course_feedback WHERE course_ID = "'+req.params.course_ID+'"', function (error, results, fields) {
-        if (error) res.json(error);
-        res.json(results);
-    });
-});
-router.get('/read/feedback/all', function(req, res, next) {
-    connection.query('SELECT * FROM course_feedback', function (error, results, fields) {
+    connection.query('SELECT * FROM course_feedback WHERE course_ID LIKE "%'+req.params.course_ID+'%"', function (error, results, fields) {
         if (error) res.json(error);
         res.json(results);
     });

@@ -33,8 +33,8 @@ router.get('/read/feedback/:course_ID', function(req, res, next) {
     });
 });
 router.post('/create/', function(req, res, next) {
-    connection.query("INSERT INTO course_feedback (course_ID, course_period, feedback, time, teacher_name, course_rating)" +
-        "VALUES ('"+req.body.course_ID+"','jan_may_18','"+req.body.feedback+"','"+req.body.time+"','"+req.body.teacher_name+"','"+req.body.course_rating+"');",
+    connection.query("INSERT INTO course_feedback (prof_name, attendance, course, grading, prof_rating, gen_feedback)" +
+        "VALUES ('"+req.body.prof_name+"','"+req.body.attendance+"','"+req.body.course+"','"+req.body.grading+"','"+req.body.prof_rating+"','"+req.body.gen_feedback+"');",
         function (error, results, fields) {
         if (error) res.json(error);
         res.json(results);

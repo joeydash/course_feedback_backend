@@ -40,5 +40,11 @@ router.post('/create/', function(req, res, next) {
         res.json(results);
     });
 });
+router.get('/read_all_feedback', function(req, res, next) {
+    connection.query('SELECT * FROM course_feedback', function (error, results, fields) {
+        if (error) res.json(error);
+        res.json(results);
+    });
+});
 
 module.exports = router;

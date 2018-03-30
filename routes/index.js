@@ -26,15 +26,15 @@ router.get('/read/:id', function(req, res, next) {
         });
     }
 });
-router.get('/read/feedback/:course_ID', function(req, res, next) {
-    connection.query('SELECT * FROM course_feedback WHERE course_ID LIKE "%'+req.params.course_ID+'%"', function (error, results, fields) {
+router.get('/read/feedback/:number', function(req, res, next) {
+    connection.query('SELECT * FROM course_feedback WHERE number LIKE "%'+req.params.number+'%"', function (error, results, fields) {
         if (error) res.json(error);
         res.json(results);
     });
 });
 router.post('/create/', function(req, res, next) {
-    connection.query("INSERT INTO course_feedback (prof_name, attendance, course, grading, prof_rating, gen_feedback)" +
-        "VALUES ('"+req.body.prof_name+"','"+req.body.attendance+"','"+req.body.course+"','"+req.body.grading+"','"+req.body.prof_rating+"','"+req.body.gen_feedback+"');",
+    connection.query("INSERT INTO course_feedback (number,prof_name, attendance, course, grading, prof_rating, gen_feedback)" +
+        "VALUES ('"+req.body.number+"','"+req.body.prof_name+"','"+req.body.attendance+"','"+req.body.course+"','"+req.body.grading+"','"+req.body.prof_rating+"','"+req.body.gen_feedback+"');",
         function (error, results, fields) {
         if (error) res.json(error);
         res.json(results);
